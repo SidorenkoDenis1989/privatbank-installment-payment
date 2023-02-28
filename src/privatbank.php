@@ -88,10 +88,7 @@ class PrivatBank {
 		$name = trim($_POST['name'] ? $_POST['name'] : 0);
 
 		$phone = $_POST['phone'] ? $_POST['phone'] : "";
-		$phone = str_replace("(", "", $phone);
-		$phone = str_replace(")", "", $phone);
-		$phone = str_replace("-", "", $phone);
-		$phone = str_replace(" ", "", $phone);
+		$phone = preg_replace( '/[^0-9]/', '', $phone );
 
 		$phoneWithoutPlus = str_replace("+", "", $phone);
 
